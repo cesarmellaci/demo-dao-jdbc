@@ -1,18 +1,17 @@
 package application;
 
-import java.util.Date;
-import java.util.List;
+import java.util.Scanner;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
 import model.entities.Department;
-import model.entities.Seller;
 
 public class Program {
 
 	public static void main(String[] args) {
 
 		SellerDao sellerDao = DaoFactory.createSellerDao();
+		Scanner sc = new Scanner(System.in);
 
 		Department department = new Department(2, null);
 		//Seller seller = sellerDao.findById(3);
@@ -29,10 +28,22 @@ public class Program {
 			//System.out.println(obj);
 		//}
 
-		System.out.println("Teste findAll");
-		List<Seller> list = sellerDao.findAll();
-		for (Seller obj : list) {
-			System.out.println(obj);
-		}
+		//System.out.println("Teste findAll");
+		//List<Seller> list = sellerDao.findAll();
+		//for (Seller obj : list) {
+			//System.out.println(obj);
+		//}
+
+		//System.out.println("Teste Update");
+		//Seller seller = sellerDao.findById(1);
+		//seller.setName("Bruce Wayne");
+		//sellerDao.update(seller);
+		//System.out.println("Updated! = " + seller.getName());
+
+		System.out.println("Test Delete");
+		System.out.println("Enter for Id: ");
+		int id = sc.nextInt();
+		sellerDao.deleteById(id);
+		System.out.println("Delete complete!");
 	}
 }
